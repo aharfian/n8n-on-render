@@ -1,0 +1,29 @@
+services:
+  - type: web
+    name: n8n
+    env: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: DB_TYPE
+        value: postgresdb
+      - key: DB_POSTGRESDB_HOST
+        value: ep-frosty-surf-a1t6jz9q-pooler.ap-southeast-1.aws.neon.tech
+      - key: DB_POSTGRESDB_PORT
+        value: 5432
+      - key: DB_POSTGRESDB_DATABASE
+        value: n8n
+      - key: DB_POSTGRESDB_USER
+        value: n8n_owner
+      - key: DB_POSTGRESDB_PASSWORD
+        value: npg_FbW41EXCKuHt
+      - key: DB_POSTGRESDB_SCHEMA
+        value: public
+      - key: DB_POSTGRESDB_SSL_REJECT_UNAUTHORIZED
+        value: "false"
+      - key: DB_SSL
+        value: "true"
+      - key: N8N_HOST
+        value: n8n.onrender.com
+      - key: N8N_PORT
+        value: 5678
