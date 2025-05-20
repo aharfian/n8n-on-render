@@ -8,15 +8,15 @@ services:
       - key: DB_TYPE
         value: postgresdb
       - key: DB_POSTGRESDB_HOST
-        value: ep-frosty-surf-a1t6jz9q-pooler.ap-southeast-1.aws.neon.tech
+        fromEnvVar: DB_POSTGRESDB_HOST
       - key: DB_POSTGRESDB_PORT
         value: 5432
       - key: DB_POSTGRESDB_DATABASE
-        value: n8n
+        fromEnvVar: DB_POSTGRESDB_DATABASE
       - key: DB_POSTGRESDB_USER
-        value: n8n_owner
+        fromEnvVar: DB_POSTGRESDB_USER
       - key: DB_POSTGRESDB_PASSWORD
-        value: npg_FbW41EXCKuHt
+        fromEnvVar: DB_POSTGRESDB_PASSWORD
       - key: DB_POSTGRESDB_SCHEMA
         value: public
       - key: DB_POSTGRESDB_SSL_REJECT_UNAUTHORIZED
