@@ -4,26 +4,33 @@ services:
     env: docker
     plan: free
     dockerfilePath: ./Dockerfile
+    port: 10000
+    
     envVars:
+      # Database
       - key: DB_TYPE
         value: postgresdb
       - key: DB_POSTGRESDB_HOST
-        fromEnvVar: DB_POSTGRESDB_HOST
+        fromEnvVar: NEON_HOST
       - key: DB_POSTGRESDB_PORT
         value: 5432
       - key: DB_POSTGRESDB_DATABASE
-        fromEnvVar: DB_POSTGRESDB_DATABASE
+        fromEnvVar: NEON_DB_NAME
       - key: DB_POSTGRESDB_USER
-        fromEnvVar: DB_POSTGRESDB_USER
+        fromEnvVar: NEON_USER
       - key: DB_POSTGRESDB_PASSWORD
-        fromEnvVar: DB_POSTGRESDB_PASSWORD
-      - key: DB_POSTGRESDB_SCHEMA
-        value: public
+        fromEnvVar: NEON_PASSWORD
+      - key: DB_POSTGRESDB_SSL
+        value: "true"
       - key: DB_POSTGRESDB_SSL_REJECT_UNAUTHORIZED
         value: "false"
-      - key: DB_SSL
-        value: "true"
-      - key: N8N_HOST
-        value: n8n.onrender.com
+      
+      # App
       - key: N8N_PORT
-        value: 5678
+        value: 10000
+      - key: N8N_PROTOCOL
+        value: https
+      - key: WEBHOOK_URL
+        value: https://n8n-on-render-kb7j.onrender.com
+      - key: GENERIC_TIMEZONE
+        value: Asia/Jakarta
