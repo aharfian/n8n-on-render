@@ -25,7 +25,7 @@ services:
       - key: DB_POSTGRESDB_SSL_REJECT_UNAUTHORIZED
         value: "false"
       
-      # App
+      # App edit
       - key: N8N_PORT
         value: 10000
       - key: N8N_PROTOCOL
